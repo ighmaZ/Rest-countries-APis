@@ -1,12 +1,12 @@
 
 import React from 'react'
 import Navbar from './components/Navbar'
-import DropdownBar from './components/DropdownBar'
+import Search from './components/Search'
 const App = () => {
   return (
     <>
-{/* <Navbar/> */}
-<DropdownBar/>
+<Navbar/>
+<Search/>
     </>
   )
 }

@@ -4,7 +4,8 @@ import { Dropdown } from 'flowbite-react'
 const DropdownBar = () => {
   return (
     <>
-<Dropdown label="Filter by region">
+<Dropdown 
+label="Filter by region">
   <Dropdown.Item 
   // onClick={onClick}
   >
