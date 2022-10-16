@@ -1,4 +1,5 @@
 import React from 'react'
+import { BsMoon } from 'react-icons/Bs';
 
 const Navbar = () => {
   return (
@@ -6,8 +7,8 @@ const Navbar = () => {
 
 <nav className='relative w-full flex flex-row items-center justify-between py-8 shadow-lg '>
 
-    <h2  className='text-2xl font-bold ml-3'>Where in the world?</h2>
-    <h2 className='text-2xl font-bold mr-3'>Dark Mode</h2>
+    <h2  className='text-2xl font-bold ml-20'>Where in the world?</h2>
+    <h2 className='text-2xl font-bold mr-20 flex '><BsMoon className='mr-2 mt-1'/>Dark Mode</h2>
 </nav>
     </>
   )
