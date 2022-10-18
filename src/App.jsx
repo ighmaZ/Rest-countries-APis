@@ -1,5 +1,6 @@
 
 import React from 'react'
+import MapInfo from './components/MapInfo'
 import Navbar from './components/Navbar'
 import Search from './components/Search'
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <>
 <Navbar/>
 <Search/>
+<MapInfo/>
     </>
   )
 }
