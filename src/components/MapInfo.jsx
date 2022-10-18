@@ -1,27 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import SearchBar from './SearchBar';
+import DropdownBar from './DropdownBar';
 
 const MapInfo = () => {
 
 const[countries, setCountries] = useState([]);
 
-    useEffect(() => {      
+useEffect(() => {      
 
-         axios.get('https://restcountries.com/v3.1/all') 
-         .then((response)=> { 
-           const data = response.data;
-           setCountries(data);
-         }
-         )
+  axios.get('https://restcountries.com/v3.1/all') 
+  .then((response)=> { 
+    const data = response.data;
+    setCountries(data);
+  }
+  )
+},[])
 
- 
+   
+  const getCountryByInput = async (countryName) => {
+    
+      const res = await axios.get(`https://restcountries.com/v2/name/${countryName}`);
+      const data = await res.json();
+      setCountries(data);
 
-    },[])
+    }
+
+  const getCountryByFilter = async (region) => {
+    
+      const res = await axios.get(`https://restcountries.com/v2/region/${region}`);
+      const data = await res.json();
+      setCountries(data);
+
+    }
+
+
+
     
   return (
     <>
 
+<div className='flex justify-between px-20'>
+    <SearchBar/>
+    <DropdownBar/>
+    </div>
+
+
+
 <div className='container flex justify-center mt-20 '>
+
     <div className='flex flex-wrap gap-3 '>
       {countries.map((country) => (
 
