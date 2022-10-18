@@ -7,7 +7,9 @@ const MapInfo = () => {
 
 const[countries, setCountries] = useState([]);
 
-useEffect(() => {      
+
+
+useEffect(() => {       // to get all countries
 
   axios.get('https://restcountries.com/v3.1/all') 
   .then((response)=> { 
@@ -17,31 +19,32 @@ useEffect(() => {
   )
 },[])
 
-   
   const getCountryByInput = async (countryName) => {
     
-      const res = await axios.get(`https://restcountries.com/v2/name/${countryName}`);
+      const res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+
       const data = await res.json();
       setCountries(data);
 
-    }
+    } 
 
-  const getCountryByFilter = async (region) => {
+
+  const getCountryByFilter = async (countryName) => {
     
-      const res = await axios.get(`https://restcountries.com/v2/region/${region}`);
+      const res = await fetch(`https://restcountries.com/v2/region/${region}`);
+
       const data = await res.json();
       setCountries(data);
 
     }
-
-
+     
 
     
   return (
     <>
 
 <div className='flex justify-between px-20'>
-    <SearchBar/>
+    <SearchBar onSearch={getCountryByInput}/>
     <DropdownBar/>
     </div>
 
@@ -69,9 +72,7 @@ useEffect(() => {
         
       
       ))}
-  {/* <div>
-      <span>{country.name}</span>
-  </div> */}
+
   </div>
 </div>
 
