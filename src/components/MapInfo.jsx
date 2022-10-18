@@ -29,7 +29,7 @@ useEffect(() => {       // to get all countries
     } 
 
 
-  const getCountryByFilter = async (countryName) => {
+  const getCountryByFilter = async (region) => {
     
       const res = await fetch(`https://restcountries.com/v2/region/${region}`);
 
@@ -44,8 +44,8 @@ useEffect(() => {       // to get all countries
     <>
 
 <div className='flex justify-between px-20'>
-    <SearchBar onSearch={getCountryByInput}/>
-    <DropdownBar/>
+    <SearchBar onSearch={getCountryByInput}/>    
+    <DropdownBar onSelect={getCountryByFilter}/>
     </div>
 
 
