@@ -21,13 +21,24 @@ const[countries, setCountries] = useState([]);
   return (
     <>
 
-<div className='container flex justify-center mt-5 '>
+<div className='container flex justify-center mt-20 '>
     <div className='flex flex-wrap gap-3 '>
       {countries.map((country) => (
 
-        <div className='ml-20 w-64'>  
+        <div className='ml-36 w-64'>  
           <img src={country.flags.png} className="w-full h-40 rounded" />
+          <div className="p-5">
+                <h3>{country.name.common}</h3>
+                <h6>
+                  {" "}
+                  Population:{" "}
+                  {new Intl.NumberFormat().format(country.population)}
+                </h6>
+                <h6> Region: {country.region}</h6>
+                <h6>Capital: {country.capital}</h6>
+              </div>
         </div>
+        
         
       
       ))}
